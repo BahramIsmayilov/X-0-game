@@ -45,7 +45,11 @@ class App extends Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ? `move to: #${move}` : "Return to the beginning";
+      const desc = move
+        ? move % 2 !== 0
+          ? ` X player => move to: #${move}`
+          : ` 0 player => move to: #${move}`
+        : "Return to the beginning";
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
