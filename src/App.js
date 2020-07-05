@@ -39,10 +39,6 @@ class App extends Component {
       xIsNext: step % 2 === 0,
     });
   }
-  // toogleClass() {
-  //   const currentState = this.state.active;
-  //   this.setState({ active: !currentState });
-  // }
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -69,7 +65,9 @@ class App extends Component {
 
     let status;
     if (winner) {
-      status = `Winner: ${winner}`;
+      status = `WINNER: ${winner}`;
+    } else if (this.state.stepNumber === 9) {
+      status = `DRAW!`;
     } else {
       status = `Next Player: ${this.state.xIsNext ? "X" : "0"}`;
     }
