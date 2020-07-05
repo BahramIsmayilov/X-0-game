@@ -35,7 +35,10 @@ ol button {
   color: brown;
   letter-spacing: 3px;
 }
-
+.active {
+  color: white;
+  background-color: brown;
+}
 .square {
   background: rgb(202, 202, 202);
   border: 4px solid brown;

@@ -39,6 +39,10 @@ class App extends Component {
       xIsNext: step % 2 === 0,
     });
   }
+  // toogleClass() {
+  //   const currentState = this.state.active;
+  //   this.setState({ active: !currentState });
+  // }
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -52,7 +56,13 @@ class App extends Component {
         : "Return to the beginning";
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          {move === this.state.stepNumber ? (
+            <button className="active" onClick={() => this.jumpTo(move)}>
+              {desc}
+            </button>
+          ) : (
+            <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          )}
         </li>
       );
     });
